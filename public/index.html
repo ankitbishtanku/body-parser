@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #55DD33;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: white;
+    }
+    .form-container input {
+      width: 94%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-container button {
+      background-color: #55DD33;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+  <title>Form Example</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <form method="GET" >
+        <input type="text" id="name" name="name" placeholder="Name" required>
+        
+        <input type="text" id="mobile" name="mobile" placeholder="Mobile No." required>
+        
+        <input type="file" id="file" name="file" placeholder="Resume" accept=".pdf, .doc, .docx">
+        
+        <button type="submit" onclick="compareNo(event)">Submit</button>
+      </form>
+    </div>
+    <script>
+    	
+    	
+    	function compareNo(event){
+    		let mobile = document.getElementById("mobile").value;
+    		let name = document.getElementById('name').value;
+    		let mobileNumberRegex = /^(70|82|90|95)[0-9]{8}$/;
+    		console.log(mobile)
+    		event.preventDefault(); 
+    		console.log(name)
+  		const result = mobileNumberRegex.test(mobile);
+    		console.log(result);
+    	};
+
+    </script>
+  </body>
+</html>

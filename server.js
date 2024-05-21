@@ -6,16 +6,26 @@
 'use strict';
 
 const express = require('express');
-
-// Constants
-const PORT = 3000;
-const HOST = '0.0.0.0';
-
-// App
+const bodyParser = require('body-parser');
 const app = express();
+const port = 4000;
+
+
+app.use(bodyParser.urlencoded({extended : false}));
+app.use('/login', express.static(  __dirname + '/public'));
+
 app.get('/', (req, res) => {
-	res.send('Hello remote world!\n');
+  res.send('Hello, this is home page!');
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.post('/login', (req, res) => {
+	console.log(req.body);
+	const email = req.body.email;
+	res.redirect("/");
+})
+
+app.listen(port, () => {
+	console.log(`server is running at ${port}`);
+});
+
+
